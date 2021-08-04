@@ -6,35 +6,35 @@
 using namespace std;
 int partition(int arr[],int low, int high){
     int pivot = arr[high];
-    int i = low;
-    for(int j=0;j<high;j++){
-        if (arr[j]<=pivot){
+    int i = low-1;
+    for(int j=low;j<high;j++){
+        if (arr[j]<pivot){
             i++;
             swap(arr[i],arr[j]);
         }
     }
     swap(arr[i+1],arr[high]);
-    return i;
+    return i+1;
 }
 
 void Quicksort(int arr[],int low,int high){
     if (low<high) {
-        int pivot = partition(arr, low, high);
-        Quicksort(arr, low, pivot - 1);
-        Quicksort(arr, pivot + 1, high);
+        int pi = partition(arr, low, high);
+        Quicksort(arr, low, pi - 1);
+        Quicksort(arr, pi + 1, high);
     }
 }
 int main(){
     long int n; //input no. of elements
     cin >> n;
     int arr[n];
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
+    for (int k = 0; k < n; ++k) {
+        cin >> arr[k];
     }
-    Quicksort(arr,0,n);
+    Quicksort(arr,0,n-1);
     cout << endl;
-    for (int i = 0; i < n; ++i) {
-        cout << arr[i]<<" ";
+    for (int k = 0; k < n; ++k) {
+        cout << arr[k]<<" ";
     }
     return 0;
 }
