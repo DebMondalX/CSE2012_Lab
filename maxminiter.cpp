@@ -17,4 +17,12 @@ void MaxMiniterative(int arr[],int n){
     a[1] = min;
     cout << a[0] <<" "<<a[1] <<endl;
 }
-
+int main(){
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i <n ; ++i) {
+        cin >> arr[i];
+    }
+    MaxMiniterative(arr,n);
+}
